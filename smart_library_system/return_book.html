@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Return Book</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Return Book</h2>
+
+<input placeholder="Student Name">
+<input placeholder="Book Name">
+
+<button>Return Book</button>
+
+<br><br>
+
+<a href="dashboard.html">⬅ Back</a>
+
+</div>
+
+<script>
+
+document.addEventListener("DOMContentLoaded",function(){
+
+let button=document.querySelector("button")
+
+button.addEventListener("click",function(){
+
+let inputs=document.querySelectorAll("input")
+
+let student=inputs[0].value
+let book=inputs[1].value
+
+if(student=="" || book==""){
+alert("Enter Student Name and Book Name")
+return
+}
+
+alert("Book Returned Successfully")
+
+inputs[0].value=""
+inputs[1].value=""
+
+})
+
+})
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Generate QR</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+body{
+font-family: Arial;
+text-align:center;
+margin-top:50px;
+}
+
+#qrcode{
+margin-top:20px;
+}
+
+button{
+padding:10px 20px;
+background:green;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Generate QR</h2>
+
+<input id="student" placeholder="Student Name"><br><br>
+
+<input id="bookid" placeholder="Book ID"><br><br>
+
+<input id="bookname" placeholder="Book Name"><br><br>
+
+<button onclick="generateQR()">Generate QR</button>
+
+<div id="qrcode"></div>
+
+<br>
+
+<a href="dashboard.html">Back</a>
+
+<script>
+
+function generateQR(){
+
+let student = document.getElementById("student").value
+let bookid = document.getElementById("bookid").value
+let book = document.getElementById("bookname").value
+
+let data =
+"Student: "+student+
+"\nBook ID: "+bookid+
+"\nBook: "+book
+
+document.getElementById("qrcode").innerHTML=""
+
+new QRCode(document.getElementById("qrcode"),{
+text:data,
+width:200,
+height:200
+})
+
+}
+
+</script>
+
+</body>
+</html>
