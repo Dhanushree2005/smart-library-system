@@ -474,3 +474,31 @@ text:data,
 width:150,
 height:150
 })
+// Register function
+function registerUser() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    if (name == "" || email == "" || password == "") {
+        alert("Please fill all fields");
+        return;
+    }
+
+    // You can store the registered user details in localStorage or proceed with the backend
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    users.push({
+        name: name,
+        email: email,
+        password: password
+    });
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Registration Successful!");
+
+    // Reset the fields after registration
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("password").value = "";
+}

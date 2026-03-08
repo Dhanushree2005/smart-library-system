@@ -153,3 +153,95 @@ font-weight:bold;
 a:hover{
 text-decoration:underline;
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Segoe UI, sans-serif;
+}
+
+/* BACKGROUND COLOR */
+body {
+    background: linear-gradient(135deg, #9be7c4, #4cd137, #2ecc71);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* MAIN CONTAINER */
+.container {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    width: 400px;
+    text-align: center;
+}
+
+/* TITLES */
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* INPUT */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+/* INPUT FOCUS */
+input:focus {
+    border-color: #27ae60;
+    box-shadow: 0 0 5px rgba(39, 174, 96, 0.5);
+}
+
+/* BUTTON */
+button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff512f, #dd2476, #1fa2ff, #12d8fa);
+    background-size: 300%;
+    transition: 0.3s;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* BUTTON HOVER */
+button:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* SUCCESS MESSAGE */
+.message {
+    margin-top: 20px;
+    color: green;
+    font-weight: bold;
+}
+
+/* LINKS */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}

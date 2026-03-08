@@ -1,47 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Register</title>
+  <title>Register</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h2>User Register</h2>
+<div class="container">
+  <h2>Register</h2>
+  <input type="text" id="name" placeholder="Name">
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="registerUser()">Register</button>
 
-<input type="text" id="name" placeholder="Enter Name"><br><br>
-<input type="email" id="email" placeholder="Enter Email"><br><br>
-<input type="password" id="password" placeholder="Enter Password"><br><br>
-
-<button onclick="registerUser()">Register</button>
+  <br><br>
+  <a href="login.html">Already have an account? Login</a>
+</div>
 
 <script>
+  function registerUser() {
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
 
-function registerUser(){
+      if (name == "" || email == "" || password == "") {
+          alert("Please fill all fields");
+          return;
+      }
 
-let name = document.getElementById("name").value
-let email = document.getElementById("email").value
-let password = document.getElementById("password").value
+      // Store user data in localStorage
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+      users.push({
+          name: name,
+          email: email,
+          password: password
+      });
 
-if(name=="" || email=="" || password==""){
-alert("Please fill all fields")
-return
-}
+      localStorage.setItem("users", JSON.stringify(users));
 
-let users = JSON.parse(localStorage.getItem("users")) || []
+      alert("Registration Successful!");
 
-let newUser = {
-name:name,
-email:email,
-password:password
-}
-
-users.push(newUser)
-
-localStorage.setItem("users", JSON.stringify(users))
-
-alert("Registered Successfully 🎉")
-
-}
-
+      // Reset fields after successful registration
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("password").value = "";
+  }
 </script>
 
 </body>
