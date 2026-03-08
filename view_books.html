@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>View Books</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>📖 View Books</h2>
+
+<table border="1" width="100%">
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Author</th>
+<th>Image</th>
+<th>Action</th>
+</tr>
+
+<tbody id="booktable"></tbody>
+
+</table>
+
+<br>
+
+<a href="dashboard.html">⬅ Back</a>
+
+</div>
+
+<script>
+
+function loadBooks(){
+
+let books = JSON.parse(localStorage.getItem("books")) || []
+
+let table = document.getElementById("booktable")
+
+table.innerHTML=""
+
+books.forEach((b,index) => {
+
+let row = table.insertRow()
+
+row.insertCell(0).innerHTML = b.id
+row.insertCell(1).innerHTML = b.name
+row.insertCell(2).innerHTML = b.author
+row.insertCell(3).innerHTML = "<img src='"+b.image+"' width='50'>"
+
+row.insertCell(4).innerHTML =
+"<button onclick='editBook("+index+")'>Edit</button> " +
+"<button onclick='deleteBook("+index+")'>Delete</button>"
+
+})
+
+}
+
+function deleteBook(index){
+
+let books = JSON.parse(localStorage.getItem("books")) || []
+
+books.splice(index,1)
+
+localStorage.setItem("books",JSON.stringify(books))
+
+loadBooks()
+
+}
+
+function editBook(index){
+
+let books = JSON.parse(localStorage.getItem("books")) || []
+
+let newName = prompt("Edit Book Name", books[index].name)
+let newAuthor = prompt("Edit Author", books[index].author)
+
+if(newName!=null && newAuthor!=null){
+
+books[index].name = newName
+books[index].author = newAuthor
+
+localStorage.setItem("books",JSON.stringify(books))
+
+loadBooks()
+
+}
+
+}
+
+window.onload = loadBooks
+
+</script>
+
+</body>
+</html>

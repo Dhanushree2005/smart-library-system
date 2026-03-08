@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Issue Book</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Issue Book</h2>
+
+<input id="studentname" placeholder="Student Name">
+
+<input id="bookid" placeholder="Book ID">
+
+<input id="bookname" placeholder="Book Name">
+
+<label>Issue Date</label>
+<input type="date" id="issuedate">
+
+<label>Return Date</label>
+<input type="date" id="returndate">
+
+<button onclick="issueBook()">Issue Book</button>
+
+<button onclick="clearForm()">Clear</button>
+
+<p id="msg"></p>
+
+<h3>Fine Payment</h3>
+
+<input type="date" id="returndatecheck">
+
+<button onclick="checkFine()">Check Fine</button>
+
+<p id="fine"></p>
+
+<button id="paybtn" onclick="payFine()" style="display:none;">
+Pay with GPay
+</button>
+
+<h3>Issued Books</h3>
+
+<table border="1" width="100%">
+
+<tr>
+<th>Student</th>
+<th>Book ID</th>
+<th>Book</th>
+<th>Issue Date</th>
+<th>Return Date</th>
+</tr>
+
+<tbody id="tabledata"></tbody>
+
+</table>
+
+<br>
+
+<a href="dashboard.html">Back</a>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
